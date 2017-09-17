@@ -48,6 +48,7 @@ return [
             'rules' => [
                 '' => 'site/index',
                 '<action>'=>'site/<action>',
+                'article/<link>'=>'article/single'
             ],
         ],
         

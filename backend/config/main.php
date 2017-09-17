@@ -15,6 +15,9 @@ return [
         'gii' => [
             'class' => 'yii\gii\Module',
         ],
+        'debug' => [
+            'class' => 'yii\debug\Module',
+        ],
     ],
     'components' => [
         'request' => [

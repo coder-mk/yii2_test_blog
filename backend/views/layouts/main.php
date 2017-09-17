@@ -36,7 +36,6 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Главная', 'url' => ['/site/index']],
         ['label' => 'Записи', 'url' => ['/article/index']],
         ['label' => 'Категории', 'url' => ['/category/index']],
     ];
