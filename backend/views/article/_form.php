@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use vova07\imperavi\Widget;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
@@ -30,14 +31,13 @@ use vova07\imperavi\Widget;
 
     <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+    <?= $form->field($model, 'user_id')->textInput(['value' => \Yii::$app->user->identity->id]) ?>
 
     <?= $form->field($model, 'status')->dropDownList(\common\models\Article::getStatusList()) ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <?= $form->field($model, 'category_id')->dropDownList(ArrayHelper::map(\common\models\Category::find()->all(), 'id', 'title'))  ?>
 
     <?= $form->field($model, 'link')->textInput() ?>
-
     
 
     <div class="form-group">

@@ -13,6 +13,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Article;
+use common\models\Category;
+use common\models\Comment;
 
 /**
  * Site controller
@@ -74,7 +76,8 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $articles = Article::find()->andWhere(['status'=>1])->all();
-        return $this->render('index', ['articles'=>$articles]);    
+        $category = Category::find()->all();;
+        return $this->render('index', ['articles'=>$articles, 'category'=>$category]);    
     }
 
     /**

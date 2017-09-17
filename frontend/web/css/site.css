@@ -118,3 +118,42 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.main-cont>.row>.col-lg-12 {
+    float: left;
+    width: 100%;
+    background: #eee;
+    margin-bottom: 20px; 
+}
+.main-cont>.row>.col-lg-4:nth-child(3n+1) {
+    clear: both;
+}
+.cat-item {
+    background: #eee;
+    padding: 5px 20px; 
+    margin-bottom: 20px;     
+}
+.article-index td {
+    max-width: 250px;
+}
+.list-view .summary {
+    margin-bottom: 25px;
+}
+/*comments*/
+.comments-box {
+    margin-top: 50px;
+}
+.comments-box h3 {
+    margin-bottom: 15px;
+}
+.comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px;
+}
+.comments-list li {
+    padding: 10px 0;
+    border-top: dashed 1px #666;
+}
+.comments-list li .name {
+    font-weight: bold;
+}

@@ -33,7 +33,7 @@ class ArticleController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => $articles,
             'pagination' => [
-                'pageSize' => 2,
+                'pageSize' => 10,
             ],
         ]);
 

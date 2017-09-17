@@ -118,3 +118,17 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.article-form .field-article-user_id {
+    display: none;
+}
+.article-index td {
+    max-width: 45%;
+    white-space: normal;
+}
+.article-index .summary {
+    margin-bottom: 25px;
+}
+.action-column {
+    min-width: 70px;
+}

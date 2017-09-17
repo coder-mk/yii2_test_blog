@@ -49,7 +49,8 @@ return [
                 '' => 'site/index',
                 '<action>'=>'site/<action>',
                 'article/index'=>'article/index',
-                'article/<link>'=>'article/single'
+                'article/<link>'=>'article/single',
+                'category/<url>'=>'category/single'
             ],
         ],
         

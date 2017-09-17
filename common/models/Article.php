@@ -59,7 +59,7 @@ class Article extends \yii\db\ActiveRecord
             'image' => 'Изображение',
             'user_id' => 'ID пользователя',
             'status' => 'Опубликовано',
-            'category_id' => 'ID категории',
+            'category_id' => 'Категория',
             'link' => 'ЧПУ',
         ];
     }
