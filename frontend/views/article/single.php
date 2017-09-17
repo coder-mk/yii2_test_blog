@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use common\models\CommentForm;
 
 /* @var $this yii\web\View */
 /* @var $article \common\models\Article */
@@ -13,28 +14,23 @@ use yii\helpers\Html;
 
 <div class="comments-box">
 	<h3>Комментарии</h3>
+	<?php if(!empty($acomments)):?>
 	<ul class="comments-list">
+		<?php foreach($acomments as $comment):?>
 		<li>
-			<span class="name">Иван</span>
-			<p class="comment">Отличный сайт все круто</p>
+			<span class="name"><?= $comment->user->username ?></span>
+			<p class="comment"><?= $comment->text ?></p>
 		</li>
-		<li>
-			<span class="name">Игнат</span>
-			<p class="comment"> Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Подпоясал, собрал щеке. Приставка вдали, текстов путь эта рыбными меня мир букв текстами раз свой коварный выйти! Продолжил, точках, рукопись!</p>
-		</li>
-		<li>
-			<span class="name">Кристина</span>
-			<p class="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae facere enim necessitatibus explicabo, sapiente iure, dicta laborum iusto aspernatur beatae placeat perspiciatis? Asperiores ex magnam, officiis, fugit recusandae aspernatur veniam.</p>
-		</li>
+		<?php endforeach;?>
 	</ul>
+	<?php endif;?>
 
 	<?php if(!Yii::$app->user->isGuest){?>
-	<form action="#" class="comment-form">
-		<div class="form-group">
-		    <label for="com-text">Текст отзыва</label>
-		   	<textarea class="form-control" id="com-text" rows="3" placeholder="Текст комментария"></textarea>
-		</div>
+	<?php $form = \yii\widgets\ActiveForm::begin([
+		'action'=>['article/comment', 'id'=>$article->id, 'link'=>$article->link],
+		'options'=>['class'=>'comment-form', 'role'=>'form']]) ?>
+		<?= $form->field($commentForm, 'comment')->textarea(['class'=>'form-control','placeholder'=>'Текст комментария'])->label('Ваш комментарий') ?>
 		<input type="submit" class="btn btn-primary" value="Добавить комментарий">
-	</form>
+	<?php \yii\widgets\ActiveForm::end(); ?>
 	<?php } ?>
 </div>
