@@ -39,6 +39,7 @@ class Article extends \yii\db\ActiveRecord
             [['title'], 'required'],
             [['title'], 'string', 'max' => 255],
             [['title', 'content', 'image', 'link'], 'string'],
+            [['link'], 'unique'],
             [['date'], 'date', 'format'=>'php:Y-m-d'],
             [['date'], 'default', 'value' => date('Y-m-d')],
             [['user_id', 'status', 'category_id'], 'integer'],
@@ -70,4 +71,14 @@ class Article extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Comment::className(), ['article_id' => 'id']);
     }
+
+    public static function getStatusList(){
+        return ['Нет', 'Да'];
+    }
+
+    public function getStatusName(){
+        $list = self::getStatusList();
+        return $list[$this->status];
+    }
+
 }

@@ -26,15 +26,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-
             'content:ntext',
             'date',
+            ['attribute'=>'status', 'filter'=>\common\models\Article::getStatusList(),'value'=>statusName],
             // 'image',
             // 'user_id',
-            // 'status',
             // 'category_id',
             // 'link'
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
